@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../api";
 import { Container, TextField, Button, Typography, CircularProgress } from "@mui/material";
 
@@ -9,6 +9,10 @@ const Login = ({ setIsAuthenticated }) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  const handleRegister = () => {
+    navigate("/register");
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -67,6 +71,14 @@ const Login = ({ setIsAuthenticated }) => {
           startIcon={loading && <CircularProgress size={20} />}
         >
           {loading ? "Entrando..." : "Entrar"}
+        </Button>
+        <Button
+          variant="outlined"
+          style={{ marginLeft: "20px", marginTop: "20px" }}
+          color="primary"
+          onClick={handleRegister}
+        >
+          Cadastrar
         </Button>
       </form>
     </Container>

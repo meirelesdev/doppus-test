@@ -11,6 +11,8 @@ import {
   TableRow,
   useMediaQuery,
   Skeleton,
+  TableContainer,
+  Paper,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import ConfirmDialog from "./ConfirmDialog";
@@ -64,24 +66,11 @@ const Users = () => {
       >
         Adicionar Usuário
       </Button>
-      {loading ? (
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>
-                <Skeleton />
-              </TableCell>
-              <TableCell>
-                <Skeleton />
-              </TableCell>
-              <TableCell>
-                <Skeleton />
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {Array.from(new Array(5)).map((_, index) => (
-              <TableRow key={index}>
+      <TableContainer component={Paper} style={{ marginTop: "20px" }}>
+        {loading ? (
+          <Table>
+            <TableHead>
+              <TableRow>
                 <TableCell>
                   <Skeleton />
                 </TableCell>
@@ -92,49 +81,65 @@ const Users = () => {
                   <Skeleton />
                 </TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      ) : (
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>Nome</TableCell>
-              <TableCell>E-mail</TableCell>
-              <TableCell>Ações</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {users.map((user) => (
-              <TableRow key={user.id}>
-                <TableCell>{user.id}</TableCell>
-                <TableCell>{user.name}</TableCell>
-                <TableCell>{user.email}</TableCell>
-                <TableCell>
-                  <Button
-                    component={Link}
-                    to={`/users/edit/${user.id}`}
-                    variant="contained"
-                    size={isMobile ? "small" : "medium"}
-                    style={{ marginRight: "10px" }}
-                  >
-                    Editar
-                  </Button>
-                  <Button
-                    onClick={() => handleDeleteClick(user.id)}
-                    variant="contained"
-                    color="secondary"
-                    size={isMobile ? "small" : "medium"}
-                  >
-                    Deletar
-                  </Button>
-                </TableCell>
+            </TableHead>
+            <TableBody>
+              {Array.from(new Array(5)).map((_, index) => (
+                <TableRow key={index}>
+                  <TableCell>
+                    <Skeleton />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        ) : (
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>ID</TableCell>
+                <TableCell>Nome</TableCell>
+                <TableCell>E-mail</TableCell>
+                <TableCell>Ações</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      )}
+            </TableHead>
+            <TableBody>
+              {users.map((user) => (
+                <TableRow key={user.id}>
+                  <TableCell>{user.id}</TableCell>
+                  <TableCell>{user.name}</TableCell>
+                  <TableCell>{user.email}</TableCell>
+                  <TableCell>
+                    <Button
+                      component={Link}
+                      to={`/users/edit/${user.id}`}
+                      variant="contained"
+                      size={isMobile ? "small" : "medium"}
+                      style={{ marginRight: "10px", marginBottom: "10px" }}
+                    >
+                      Editar
+                    </Button>
+                    <Button
+                      onClick={() => handleDeleteClick(user.id)}
+                      variant="contained"
+                      color="secondary"
+                      size={isMobile ? "small" : "medium"}
+                      style={{ marginBottom: "10px" }}
+                    >
+                      Deletar
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        )}
+      </TableContainer>
       <ConfirmDialog
         open={confirmOpen}
         handleClose={handleClose}

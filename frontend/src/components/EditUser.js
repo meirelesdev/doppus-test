@@ -41,6 +41,10 @@ const EditUser = () => {
     }
   };
 
+  const handleCancel = () => {
+    navigate(-1); // Navega para a página anterior
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -144,6 +148,14 @@ const EditUser = () => {
         {error && <Typography color="error">{error}</Typography>}
         <Button type="submit" variant="contained" color="primary">
           Salvar
+        </Button>
+        <Button
+          variant="outlined"
+          style={{ marginLeft: "20px" }}
+          color="secondary"
+          onClick={handleCancel}
+        >
+          Cancelar
         </Button>
       </form>
     </Container>

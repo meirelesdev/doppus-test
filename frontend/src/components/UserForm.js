@@ -12,6 +12,10 @@ const UserForm = ({ isRegister }) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  const handleCancel = () => {
+    navigate(-1); // Navega para a página anterior
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
@@ -97,6 +101,14 @@ const UserForm = ({ isRegister }) => {
           startIcon={loading && <CircularProgress size={20} />}
         >
           {loading ? "Cadastrando..." : "Salvar"}
+        </Button>
+        <Button
+          variant="outlined"
+          style={{ marginLeft: "20px", marginTop: "20px" }}
+          color="secondary"
+          onClick={handleCancel}
+        >
+          Cancelar
         </Button>
       </form>
     </Container>
