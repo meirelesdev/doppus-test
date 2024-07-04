@@ -59,9 +59,9 @@ Este projeto demonstra a integração entre um backend eficiente e um frontend m
 
 O projeto aqui disposto foi desenvolvido utilizando as seguintes tecnologias:
 
-- [PHP](https://pt-br.reactjs.org/)
-- [Laravel 11.x](https://pt-br.reactjs.org/)
-- [MySQL](https://pt-br.reactjs.org/)
+- [PHP](https://www.php.net/)
+- [Laravel 11.x](https://laravel.com/)
+- [MySQL](https://dev.mysql.com/)
 - [ReactJS](https://pt-br.reactjs.org/)
 - [Axios](https://axios-http.com/docs/intro)
 - [Material UI](https://mui.com/)
