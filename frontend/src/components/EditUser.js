@@ -69,17 +69,17 @@ const EditUser = () => {
 
   return (
     <Container>
-      <Typography variant="h4">Edit User</Typography>
+      <Typography variant="h4">Editar Usuário</Typography>
       <form onSubmit={handleSubmit}>
         <TextField
-          label="Name"
+          label="Nome:"
           value={name}
           onChange={(e) => setName(e.target.value)}
           fullWidth
           margin="normal"
         />
         <TextField
-          label="Email"
+          label="E-mail:"
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -87,7 +87,7 @@ const EditUser = () => {
           margin="normal"
         />
         <TextField
-          label="Current Password"
+          label="Senha Atual:"
           type="password"
           value={currentPassword}
           onChange={(e) => setCurrentPassword(e.target.value)}
@@ -126,7 +126,7 @@ const EditUser = () => {
           }}
         />
         <TextField
-          label="New Password"
+          label="Nova Senha:"
           type="password"
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
@@ -134,7 +134,7 @@ const EditUser = () => {
           margin="normal"
         />
         <TextField
-          label="Confirm New Password"
+          label="Confirme a nova Senha:"
           type="password"
           value={confirmNewPassword}
           onChange={(e) => setConfirmNewPassword(e.target.value)}
@@ -143,7 +143,7 @@ const EditUser = () => {
         />
         {error && <Typography color="error">{error}</Typography>}
         <Button type="submit" variant="contained" color="primary">
-          Save
+          Salvar
         </Button>
       </form>
     </Container>
