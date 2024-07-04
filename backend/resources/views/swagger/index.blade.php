@@ -3,7 +3,7 @@
 <head>
     <title>Documentação da API</title>
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.25.0/swagger-ui.css" >
-    <link rel="icon" type="image/png" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.25.0/favicon-32x32.png" >
+    <link rel="icon" type="image/webp" href="{{ asset('images/favicon.webp') }}">
     <style>
         html
         {
