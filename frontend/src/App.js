@@ -10,7 +10,13 @@ import UserForm from "./components/UserForm";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isDarkTheme, setIsDarkTheme] = useState(() => {
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme && currentTheme === "true") {
+      return true;
+    }
+    return false;
+  });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,7 +33,10 @@ function App() {
   };
 
   const handleThemeChange = () => {
-    setIsDarkTheme(!isDarkTheme);
+    setIsDarkTheme((prev) => {
+      localStorage.setItem("theme", !prev);
+      return !prev;
+    });
   };
 
   return (

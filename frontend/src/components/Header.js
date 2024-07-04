@@ -12,8 +12,8 @@ import {
   Switch,
   Box,
 } from "@mui/material";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
+import LightModeSharpIcon from "@mui/icons-material/LightModeSharp";
+import Brightness2Icon from "@mui/icons-material/Brightness2";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
 import { useTheme } from "@mui/material/styles";
@@ -35,7 +35,7 @@ const Header = ({ isAuthenticated, handleLogout, isDarkTheme, handleThemeChange 
     { text: "Usuários", path: "/users" },
     { text: "Adicionar Usuário", path: "/users/create" },
   ];
-
+  console.log(typeof isDarkTheme);
   return (
     <>
       <AppBar position="static">
@@ -58,9 +58,9 @@ const Header = ({ isAuthenticated, handleLogout, isDarkTheme, handleThemeChange 
           </Typography>
           <Box sx={{ display: "flex", alignItems: "center", mr: 2 }}>
             <IconButton color="inherit" onClick={handleThemeChange}>
-              {isDarkTheme ? <Brightness7Icon /> : <Brightness4Icon />}
+              {isDarkTheme === false ? <LightModeSharpIcon /> : <Brightness2Icon />}
             </IconButton>
-            <Switch checked={isDarkTheme} onChange={handleThemeChange} color="default" />
+            <Switch checked={!!isDarkTheme} onChange={handleThemeChange} color="default" />
           </Box>
           {!isMobile && isAuthenticated && (
             <>
