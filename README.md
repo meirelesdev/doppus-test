@@ -91,7 +91,13 @@ O projeto aqui disposto foi desenvolvido utilizando as seguintes tecnologias:
 
 Este comando ira subir todos os containers
 
-4. Com os container rodando vamos rodar as migrations com o comando:
+4. Com os container rodando vamos rodar o comando para atualizar as dependencias:
+
+```sh
+  docker-compose exec backend composer update
+```
+
+5. Depois de atualizar as dependencias vamos executar as migrations com o comando:
 
 ```sh
   docker-compose exec backend php artisan migrate
